@@ -1,0 +1,14 @@
+.jaw {
+  display: flex;
+  width: 50%;
+  padding: 5px;
+  background-color: red;;
+  justify-content: space-around;
+}
+
+.tooth {
+  width: 3em;
+  background-color: white;
+  border: solid 2px black;
+  text-align: center;
+}
