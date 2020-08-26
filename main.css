@@ -1,14 +1,19 @@
-.jaw {
+#jaw {
   display: flex;
-  width: 50%;
+  width: 80%;
   padding: 5px;
   background-color: red;;
   justify-content: space-around;
 }
 
 .tooth {
-  width: 3em;
+  width: 2em;
+  height: 2vh;
   background-color: white;
   border: solid 2px black;
   text-align: center;
+}
+
+.tooth[picked=true]{
+  visibility: collapse;
 }
