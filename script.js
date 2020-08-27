@@ -2,21 +2,21 @@ const CHOICES = 12;
 let round = null;
 
 function randomNumber(choices) {
-  return Math.ceil((Math.random()*choices))
+  return Math.ceil(Math.random() * choices);
 }
 let trigger = randomNumber(CHOICES);
-console.log("*trigger*",trigger);
+console.log("*trigger*", trigger);
 
 function isTrigger() {
-    if (confirm("CHOMP !!!\nNew Game?")) resetBoard();
-  };
+  if (confirm("CHOMP !!!\nNew Game?")) resetBoard();
+}
 
-const teeth = document.querySelectorAll('.tooth');
+const teeth = document.querySelectorAll(".tooth");
 
 function resetBoard() {
-  teeth.forEach(t => t.setAttribute('show', 'true'));
+  teeth.forEach((t) => t.setAttribute("show", "true"));
   trigger = randomNumber(CHOICES);
-  console.log("*trigger*",trigger);
+  console.log("*trigger*", trigger);
 }
 
 /**
@@ -24,18 +24,18 @@ function resetBoard() {
  * event listener on click in jaw
  *    if div.tooth has attribute picked === 'false' -> change to 'true'
  */
-const jaw = document.querySelector('#lower-jaw');
+const jaw = document.querySelector("#lower-jaw");
 jaw.addEventListener("click", pickTooth);
 
 function togglePicked(t) {
-  if (t.getAttribute('show') === 'true') t.setAttribute('show', 'false');
+  if (t.getAttribute("show") === "true") t.setAttribute("show", "false");
   incrementTurn();
-  console.log(decideTurn(),"**", turnCounter)
+  console.log(decideTurn(), "**", turnCounter);
 }
 
 function pickTooth(evt) {
   const tooth = evt.target;
-  const toothNum = tooth.getAttribute('num');
+  const toothNum = tooth.getAttribute("num");
   console.log("#", toothNum);
   parseInt(toothNum) === trigger ? isTrigger() : togglePicked(tooth);
 }
@@ -54,37 +54,54 @@ let turnCounter = 1;
 let players = {};
 let rounds = 0;
 
-
 const playersSlider = document.querySelector("#player-count-slider");
 const sliderPosition = document.querySelector("#slider-position");
-const selectPlayerNumber = document.querySelector("#player-count-console > button")
+const selectPlayerCount = document.querySelector(
+  "#player-count-console > button"
+);
 const playerCountConsole = document.querySelector("#player-count-console");
-const playerConsole = document.querySelector("#player-console")
+const playerConsole = document.querySelector("#player-console");
 
 function incrementTurn() {
-  turnCounter += 1
+  turnCounter += 1;
 }
 
 function showSliderPosition(val) {
   sliderPosition.value = val;
 }
 
-function makePlayersInObj(num, obj) {
-  for (let i = 1; i <= num; i++) {
-    obj[i] = "Player" + i;
+function makePlayers(num) {
+  function makePlayersInObj(num, obj) {
+    for (let i = 1; i <= num; i++) {
+      obj[i] = "Player" + i;
+    }
   }
+
+  function makePlayerDiv(num) {
+    const playerDiv = document.createElement("div");
+    const playerName = document.createElement("h3");
+    playerName.innerHTML = "Player" + num;
+    playerDiv.setAttribute("playernum", num);
+    playerDiv.setAttribute("class", "player");
+    playerDiv.appendChild(playerName);
+    playerConsole.appendChild(playerDiv);
+  }
+
+  for (let i = 1; i <= num; i++) {
+    makePlayerDiv(i);
+  }
+  makePlayersInObj(playerCount, players);
 }
 
 function showPlayers() {
-  playerCount = sliderPosition.value
-  // players object gets keys for sliderPosition players (#: Player#)
-  makePlayersInObj(playerCount, players);
+  playerCount = sliderPosition.value;
   // hide playerCountConsole
-  playerCountConsole.setAttribute('show', 'false');
+  playerCountConsole.setAttribute("show", "false");
   // make playerCount amount of Player divs
+  makePlayers(playerCount);
   // show player-console
-  playerConsole.setAttribute('show', 'true');
-  console.log('*****\n\n Running showPlayers from  \n\n *****')
+  playerConsole.setAttribute("show", "true");
 }
-// sets player count on click
-selectPlayerNumber.addEventListener("click", showPlayers)
+
+// shows players on click
+selectPlayerCount.addEventListener("click", showPlayers);
