@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-.tooth[picked="true"] {
+div[show="false"] {
   visibility: collapse;
 }
 

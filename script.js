@@ -12,8 +12,9 @@ function isTrigger() {
   };
 
 const teeth = document.querySelectorAll('.tooth');
+
 function resetBoard() {
-  teeth.forEach(t => t.setAttribute('picked', 'false'));
+  teeth.forEach(t => t.setAttribute('show', 'true'));
   trigger = randomNumber(CHOICES);
   console.log("*trigger*",trigger);
 }
@@ -27,7 +28,7 @@ const jaw = document.querySelector('#lower-jaw');
 jaw.addEventListener("click", pickTooth);
 
 function togglePicked(t) {
-  if (t.getAttribute('picked') === 'false') t.setAttribute('picked', 'true');
+  if (t.getAttribute('show') === 'true') t.setAttribute('show', 'false');
   incrementTurn();
   console.log(decideTurn(),"**", turnCounter)
 }
@@ -51,20 +52,39 @@ function pickTooth(evt) {
 let playerCount = 0;
 let turnCounter = 1;
 let players = {};
+let rounds = 0;
 
-function setPlayerCount(num) {
-  if (round === null) askHowManyPlayers();
-  playerCount = num;
-}
+
+const playersSlider = document.querySelector("#player-count-slider");
+const sliderPosition = document.querySelector("#slider-position");
+const selectPlayerNumber = document.querySelector("#player-count-console > button")
+const playerCountConsole = document.querySelector("#player-count-console");
+const playerConsole = document.querySelector("#player-console")
 
 function incrementTurn() {
   turnCounter += 1
 }
 
-function askHowManyPlayers() {
-
+function showSliderPosition(val) {
+  sliderPosition.value = val;
 }
 
-function decideTurn() {
-  return(turnCounter % 2 === 0 ? "Player 2" : "Player 1");
+function makePlayersInObj(num, obj) {
+  for (let i = 1; i <= num; i++) {
+    obj[i] = "Player" + i;
+  }
 }
+
+function showPlayers() {
+  playerCount = sliderPosition.value
+  // players object gets keys for sliderPosition players (#: Player#)
+  makePlayersInObj(playerCount, players);
+  // hide playerCountConsole
+  playerCountConsole.setAttribute('show', 'false');
+  // make playerCount amount of Player divs
+  // show player-console
+  playerConsole.setAttribute('show', 'true');
+  console.log('*****\n\n Running showPlayers from  \n\n *****')
+}
+// sets player count on click
+selectPlayerNumber.addEventListener("click", showPlayers)
