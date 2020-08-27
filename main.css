@@ -1,8 +1,8 @@
-#jaw {
+#lower-jaw {
   display: flex;
   width: 80%;
   padding: 5px;
-  background-color: red;;
+  background-color: red;
   justify-content: space-around;
 }
 
@@ -14,6 +14,25 @@
   text-align: center;
 }
 
-.tooth[picked=true]{
+.tooth[picked="true"] {
   visibility: collapse;
+}
+
+.centered {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#crocodile {
+  flex-direction: column;
+  background-color: darkgreen;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.eyes {
+  background-color: white;
+  height: 2vh;
+  border-radius: 50%;
+  display: inline-block;
 }

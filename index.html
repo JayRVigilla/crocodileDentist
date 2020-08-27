@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crocodile Dentist</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crocodile Dentist</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>Crocodile Dentist</h1>
+    <div class="messages">
 
-<!-- jaw -->
-<div id="jaw">
-<div class="tooth" num="1" picked=false ></div>
-<div class="tooth" num="2" picked=false ></div>
-<div class="tooth" num="3" picked=false ></div>
-<div class="tooth" num="4" picked=false ></div>
-<div class="tooth" num="5" picked=false ></div>
-<div class="tooth" num="6" picked=false ></div>
-<div class="tooth" num="7" picked=false ></div>
-<div class="tooth" num="8" picked=false ></div>
-<div class="tooth" num="9" picked=false ></div>
-<div class="tooth" num="10" picked=false ></div>
-<div class="tooth" num="11" picked=false ></div>
-<div class="tooth" num="12" picked=false ></div>
+<div id="how-many-players">
+  <h5>How Many Players?</h5>
+  <input type="range" min="1" max="4">
+  <p>input.step?</p>
+</div>
+
+      <div class="players centered">
+        <div>
+          <h3>Player 1</h3>
+          <div class="naming-inputs">
+            <div class="player-input one">
+              <form action="#">
+                <input type="text" />
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Player 2</h3>
+          <div class="player-input two">
+            <form action="#">
+              <input type="text" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Crocodile -->
+<div id="crocodile" class="centered">
+<!-- eyes: will look at player name on their turn -->
+<div class="eyes">
+  <div class="eye left"></div>
+  <div class="eye right"></div>
+</div>
+
+<!-- jaws -->
+  <!-- jaw top: closes when trigger tooth selected -->
+  <!-- jaw bottom: the game board-->
+  <div id="lower-jaw">
+    <div class="tooth" num="1" picked="false"></div>
+    <div class="tooth" num="2" picked="false"></div>
+    <div class="tooth" num="3" picked="false"></div>
+    <div class="tooth" num="4" picked="false"></div>
+    <div class="tooth" num="5" picked="false"></div>
+    <div class="tooth" num="6" picked="false"></div>
+    <div class="tooth" num="7" picked="false"></div>
+    <div class="tooth" num="8" picked="false"></div>
+    <div class="tooth" num="9" picked="false"></div>
+    <div class="tooth" num="10" picked="false"></div>
+    <div class="tooth" num="11" picked="false"></div>
+    <div class="tooth" num="12" picked="false"></div>
+  </div>
+
 </div>
 
 </body>
