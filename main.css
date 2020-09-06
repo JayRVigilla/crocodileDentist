@@ -36,3 +36,14 @@ div[show="false"] {
   border-radius: 50%;
   display: inline-block;
 }
+
+.player{
+  opacity: 0.5;
+}
+
+.player[turn="true"]{
+  padding: 0 1em;
+  border: tomato;
+  border-style: solid;
+  opacity: 1.0;
+}

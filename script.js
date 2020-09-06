@@ -1,4 +1,4 @@
-const CHOICES = 12;
+const CHOICES = 13;
 let round = null;
 
 function randomNumber(choices) {
@@ -30,14 +30,17 @@ jaw.addEventListener("click", pickTooth);
 function togglePicked(t) {
   if (t.getAttribute("show") === "true") t.setAttribute("show", "false");
   incrementTurn();
-  console.log(decideTurn(), "**", turnCounter);
 }
 
 function pickTooth(evt) {
-  const tooth = evt.target;
-  const toothNum = tooth.getAttribute("num");
-  console.log("#", toothNum);
-  parseInt(toothNum) === trigger ? isTrigger() : togglePicked(tooth);
+  if (playerCountSelected) {
+    const tooth = evt.target;
+    const toothNum = tooth.getAttribute("num");
+    console.log("#", toothNum);
+    parseInt(toothNum) === trigger ? isTrigger() : togglePicked(tooth);
+  } else {
+    console.log('you need to select how many players first');
+  }
 }
 
 /**
@@ -51,8 +54,9 @@ function pickTooth(evt) {
  */
 let playerCount = 0;
 let turnCounter = 1;
-let players = {};
+let players = []; // keeping to allow function for adding personal names
 let rounds = 0;
+let playerCountSelected = false;
 
 const playersSlider = document.querySelector("#player-count-slider");
 const sliderPosition = document.querySelector("#slider-position");
@@ -63,7 +67,9 @@ const playerCountConsole = document.querySelector("#player-count-console");
 const playerConsole = document.querySelector("#player-console");
 
 function incrementTurn() {
-  turnCounter += 1;
+  turnCounter < players.length ? (turnCounter += 1) : (turnCounter = 1);
+  // turnCounter = turnCounter === playerCount ? 1 : turnCounter + 1;
+  whoseTurn();
 }
 
 function showSliderPosition(val) {
@@ -71,18 +77,19 @@ function showSliderPosition(val) {
 }
 
 function makePlayers(num) {
-  function makePlayersInObj(num, obj) {
+  function makePlayersInArr(num, arr) {
     for (let i = 1; i <= num; i++) {
-      obj[i] = "Player" + i;
+      arr.push(i);
     }
   }
 
   function makePlayerDiv(num) {
-    const playerDiv = document.createElement("div");
+    let playerDiv = document.createElement("div");
     const playerName = document.createElement("h3");
     playerName.innerHTML = "Player" + num;
     playerDiv.setAttribute("playernum", num);
     playerDiv.setAttribute("class", "player");
+    playerDiv.setAttribute("turn", "false");
     playerDiv.appendChild(playerName);
     playerConsole.appendChild(playerDiv);
   }
@@ -90,7 +97,7 @@ function makePlayers(num) {
   for (let i = 1; i <= num; i++) {
     makePlayerDiv(i);
   }
-  makePlayersInObj(playerCount, players);
+  makePlayersInArr(playerCount, players);
 }
 
 function showPlayers() {
@@ -101,7 +108,18 @@ function showPlayers() {
   makePlayers(playerCount);
   // show player-console
   playerConsole.setAttribute("show", "true");
+  whoseTurn();
+  playerCountSelected = true;
 }
 
 // shows players on click
 selectPlayerCount.addEventListener("click", showPlayers);
+
+function whoseTurn() {
+  const playerDivs = document.querySelectorAll("div.player");
+  for (let player of playerDivs) {
+    player.getAttribute("playernum") === turnCounter.toString()
+      ? player.setAttribute("turn", "true")
+      : player.setAttribute("turn", "false");
+  }
+}
