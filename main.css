@@ -1,21 +1,48 @@
-#lower-jaw {
+#jaws{
   display: flex;
-  width: 80%;
-  padding: 5px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: red;
+  width: 100%;
+  height: 20vh;
+  /* height: 4vh; */
+  margin: 0 auto;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
+.gums {
+  display: flex;
   background-color: red;
   justify-content: space-around;
 }
 
 .tooth {
   width: 2em;
-  height: 2vh;
+  height: 1vh;
   background-color: white;
   border: solid 2px black;
   text-align: center;
+  border-left: 100% solid transparent;
+  border-right: 100% solid transparent;
+  border-top: 2em solid white;
 }
 
 div[show="false"] {
   visibility: collapse;
+}
+
+  .upper.jaw.centered{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 5em;
+}
+
+.upper.gums{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
 .centered {
@@ -24,17 +51,37 @@ div[show="false"] {
 }
 
 #crocodile {
+  width: 60%;
+  height: 50vh;
   flex-direction: column;
+  justify-content: space-around;
   background-color: darkgreen;
   padding: 0.5em;
-  margin: 0.5em;
+  margin: 0 auto;
+  border-radius: 20%;
+  border-top-left-radius: 36%;
+  border-top-right-radius: 36%;
 }
 
-.eyes {
+#eyes{
+  display: flex;
+}
+
+.eye {
+  display: flex;
+  justify-content: space-around;
+  height: 8vh;
+  height: 4vh;
+  width: 100px;
+  margin: 2vh auto;
   background-color: white;
-  height: 2vh;
   border-radius: 50%;
-  display: inline-block;
+}
+
+.pupil{
+  background-color: black;
+  width: 30%;
+  border-radius: 50%;
 }
 
 .player{
@@ -46,4 +93,19 @@ div[show="false"] {
   border: tomato;
   border-style: solid;
   opacity: 1.0;
+}
+
+.nostril{
+  background-color: black;
+
+}
+
+#player-count-console{
+  border: violet;
+  border-style: double;
+}
+
+#slider-position{
+  border: violet;
+  border-style: double;
 }

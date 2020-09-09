@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Crocodile Dentist</h1>
-    <div class="messages">
+    <div class="main-console">
 
       <div id="player-count-console" show="true">
         <h5>How Many Players?</h5>
@@ -18,40 +18,58 @@
       </div>
 
       <div class="centered" id="player-console" show="false">
+      </div>
     </div>
 
-<!-- Crocodile -->
-<div id="crocodile" class="centered">
-<!-- eyes: will look at player name on their turn -->
-<div class="eyes">
-  <div class="eye left"></div>
-  <div class="eye right"></div>
-</div>
 
-<!-- jaws -->
-<div class="jaw">
+    <!-- Crocodile -->
+    <div id="crocodile" class="centered">
+    <!-- eyes: will look at player name on their turn -->
+    <div id="eyes">
+      <div class="eye left">
+        <div class="pupil"></div>
+      </div>
+      <div class="eye right">
+        <div class="pupil"></div>
+      </div>
+    </div>
 
-  <!-- jaw top: closes when trigger tooth selected -->
-  <div class="upper-jaw"></div>
-  <!-- jaw bottom: the game board-->
-  <div id="lower-jaw">
-    <div class="tooth" num="2" show="true"></div>
-    <div class="tooth" num="3" show="true"></div>
-    <div class="tooth" num="4" show="true"></div>
-    <div class="tooth" num="5" show="true"></div>
-    <div class="tooth" num="6" show="true"></div>
-    <div class="tooth" num="1" show="true"></div>
-    <div class="tooth" num="7" show="true"></div>
-    <div class="tooth" num="8" show="true"></div>
-    <div class="tooth" num="9" show="true"></div>
-    <div class="tooth" num="10" show="true"></div>
-    <div class="tooth" num="11" show="true"></div>
-    <div class="tooth" num="12" show="true"></div>
-    <!-- <div class="tooth" num="13" show="true"></div> -->
-  </div>
-</div>
+    <!-- jaws -->
+    <div id="jaws">
+      <!-- jaw top: closes when trigger tooth selected -->
+      <div class="centered upper jaw">
+        <div class="upper gums">
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+          </div>
+      </div>
+      <!-- jaw bottom: the game board-->
+      <div class="lower gums">
+        <div class="tooth" num="1" show="true"></div>
+        <div class="tooth" num="2" show="true"></div>
+        <div class="tooth" num="3" show="true"></div>
+        <div class="tooth" num="4" show="true"></div>
+        <div class="tooth" num="5" show="true"></div>
+        <div class="tooth" num="6" show="true"></div>
+        <div class="tooth" num="7" show="true"></div>
+        <div class="tooth" num="8" show="true"></div>
+        <div class="tooth" num="9" show="true"></div>
+        <div class="tooth" num="10" show="true"></div>
+        <div class="tooth" num="11" show="true"></div>
+        <div class="tooth" num="12" show="true"></div>
+        <div class="tooth" num="13" show="true"></div>
+      </div>
+    </div>
 
-</div>
+    </div>
 
 </body>
 <script src="script.js"></script>
