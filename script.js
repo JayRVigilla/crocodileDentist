@@ -8,13 +8,35 @@
   let trigger = randomNumber(CHOICES);
   console.log("*trigger*", trigger);
 
-  function isTrigger() {
-    if (confirm("CHOMP !!!\nNew Game?")) resetBoard();
+// changes css of crocodile. #jaws height: 4vh, .eye height: 8vh
+function chomp() {
+  const jaws = document.querySelector("#jaws");
+  const eyes = document.querySelectorAll(".eye");
+  const lowerJaw = document.querySelector(".lower.gums");
+  jaws.style.height = "4vh";
+  lowerJaw.style.visibility = "collapse";
+  eyes.forEach(eye => eye.style.height = "8vh");
+  };
+
+  function resetPrompt() {
+    if (confirm("CHOMP !!!\nNew Game?")) resetBoard()
+  }
+
+function isTrigger() {
+  chomp();
+  resetPrompt();
   }
 
   const teeth = document.querySelectorAll(".tooth");
 
-  function resetBoard() {
+function resetBoard() {
+  const jaws = document.querySelector("#jaws");
+  const eyes = document.querySelectorAll(".eye");
+  const lowerJaw = document.querySelector(".lower.gums");
+  jaws.style.height = "20vh";
+  lowerJaw.style.visibility = "visible";
+  eyes.forEach(eye => eye.style.height = "4vh");
+
     teeth.forEach((t) => t.setAttribute("show", "true"));
     trigger = randomNumber(CHOICES);
     console.log("*trigger*", trigger);
@@ -67,14 +89,12 @@
 
   function incrementTurn() {
     turnCounter < players.length ? (turnCounter += 1) : (turnCounter = 1);
-    // turnCounter = turnCounter === playerCount ? 1 : turnCounter + 1;
     whoseTurn();
   }
 
 
   function showSliderPosition(val) {
     sliderPosition.value = val;
-    // console.log(sliderPosition)
   }
 
   playersSlider.addEventListener("change", showSliderPosition(playersSlider.value));
