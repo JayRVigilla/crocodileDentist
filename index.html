@@ -21,100 +21,73 @@
       </div>
     </div>
 
-
-    <!-- Crocodile -->
-    <div id="crocodile" class="centered">
-    <!-- eyes: will look at player name on their turn -->
-    <div id="eyes">
-      <div class="eye left">
+<!-- imported crocodile  from https://codepen.io/ellypham/pen/XWmKOab-->
+<div class="box">
+  <div class="head"></div>
+  <div class="head-container">
+    <div class="left-eye">
+      <div class="iris">
         <div class="pupil"></div>
       </div>
-      <div class="eye right">
+      <div class="eyelid"></div>
+    </div>
+
+    <div class="right-eye">
+      <div class="iris">
         <div class="pupil"></div>
       </div>
+      <div class="eyelid"></div>
     </div>
+  </div>
 
-    <!-- jaws -->
-    <div id="jaws">
-      <!-- snout -->
-      <div id="snout">
-        <div class="nostril"></div>
-        <div class="nostril"></div>
-      </div>
-      <!-- jaw top: closes when trigger tooth selected -->
-      <div class="centered upper jaw">
-        <div class="upper gums">
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-          </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-            <div class="tooth">
-              <div class="bracket"></div>
-              <div class="wire"></div>
-              <div class="bracket"></div>
-            </div>
-          </div>
-      </div>
-      <!-- jaw bottom: the game board-->
-      <div class="lower gums">
-        <div class="tooth" num="1" show="true"></div>
-        <div class="tooth" num="2" show="true"></div>
-        <div class="tooth" num="3" show="true"></div>
-        <div class="tooth" num="4" show="true"></div>
-        <div class="tooth" num="5" show="true"></div>
-        <div class="tooth" num="6" show="true"></div>
-        <div class="tooth" num="7" show="true"></div>
-        <div class="tooth" num="8" show="true"></div>
-        <div class="tooth" num="9" show="true"></div>
-        <div class="tooth" num="10" show="true"></div>
-        <div class="tooth" num="11" show="true"></div>
-        <div class="tooth" num="12" show="true"></div>
-        <div class="tooth" num="13" show="true"></div>
-      </div>
+<div class="upper-jaw">
+  <div class="top-jaw-container">
+    <div class="top-jaw">
+      <div class="nostril-left"></div>
+      <div class="nostril-right"></div>
     </div>
+    <div class="top-gums"></div>
+    <div class="upper-tooth-1"></div>
+    <div class="upper-tooth-2"></div>
+    <div class="upper-tooth-3"></div>
+    <div class="upper-tooth-4"></div>
+    <div class="upper-tooth-5"></div>
+    <div class="upper-tooth-6"></div>
+    <div class="upper-tooth-7"></div>
+    <div class="upper-tooth-8"></div>
+  </div>
+</div>
 
-    </div>
+  <div class="bottom-jaw-container">
+    <div class="bottom-jaw"></div>
+    <div class="bottom-gums"></div>
+    <div class="tooth-1 tooth" num="1"></div>
+    <div class="tooth-2 tooth" num="2"></div>
+    <div class="tooth-3 tooth" num="3"></div>
+    <div class="tooth-4 tooth" num="4"></div>
+    <div class="tooth-5 tooth" num="5"></div>
+    <div class="tooth-6 tooth" num="6"></div>
+    <div class="tooth-7 tooth" num="7"></div>
+    <div class="tooth-8 tooth" num="8"></div>
+    <div class="tooth-9 tooth" num="9"></div>
+    <div class="tooth-10 tooth" num="10"></div>
+    <div class="tooth-11 tooth" num="11"></div>
+    <div class="tooth-12 tooth" num="12"></div>
+  </div>
+
+  <div class="left-foot">
+    <div class="left-nail-1"></div>
+    <div class="left-nail-2"></div>
+    <div class="left-nail-3"></div>
+  </div>
+
+  <div class="right-foot">
+    <div class="right-nail-1"></div>
+    <div class="right-nail-2"></div>
+    <div class="right-nail-3"></div>
+  </div>
+
+</div>
 
 </body>
 <script src="script.js"></script>

@@ -1,5 +1,5 @@
 
-  const CHOICES = 13;
+  const CHOICES = 12;
   let round = null;
 
   function randomNumber(choices) {
@@ -10,21 +10,23 @@
 
 // changes css of crocodile. #jaws height: 4vh, .eye height: 8vh
 function chomp() {
-  const jaws = document.querySelector("#jaws");
-  const eyes = document.querySelectorAll(".eye");
-  const lowerJaw = document.querySelector(".lower.gums");
-  jaws.style.height = "4vh";
-  lowerJaw.style.visibility = "collapse";
-  eyes.forEach(eye => eye.style.height = "8vh");
+  alert("CHOMP")
+  // const jaws = document.querySelector("#jaws");
+  // const eyes = document.querySelectorAll(".eye");
+  // const lowerJaw = document.querySelector(".lower.gums");
+  // jaws.style.height = "4vh";
+  // lowerJaw.style.visibility = "collapse";
+  // eyes.forEach(eye => eye.style.height = "8vh");
   };
 
   function resetPrompt() {
-    if (confirm("CHOMP !!!\nNew Game?")) resetBoard()
+    if (confirm("New Game?")) resetBoard() // TODO: confirm to alert?
   }
 
 function isTrigger() {
   chomp();
-  resetPrompt();
+  // setTimeout(resetPrompt(), 4000); // FIX: Timeout still firing before chomp()
+  alert(`Player ${turnCounter} Loses, New game?`)
   }
 
   const teeth = document.querySelectorAll(".tooth");
@@ -47,11 +49,12 @@ function resetBoard() {
    * event listener on click in jaw
    *    if div.tooth has attribute picked === 'false' -> change to 'true'
    */
-  const jaw = document.querySelector(".lower.gums");
+  // const jaw = document.querySelector(".lower.gums");
+  const jaw = document.querySelector(".bottom-jaw-container");
   jaw.addEventListener("click", pickTooth);
 
   function togglePicked(t) {
-    if (t.getAttribute("show") === "true") t.setAttribute("show", "false");
+    t.setAttribute("hidden", true)
     incrementTurn();
   }
 
