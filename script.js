@@ -1,5 +1,6 @@
 
   const CHOICES = 12;
+  const teeth = document.querySelectorAll(".tooth");
   let round = null;
 
   function randomNumber(choices) {
@@ -8,15 +9,9 @@
   let trigger = randomNumber(CHOICES);
   console.log("*trigger*", trigger);
 
-// changes css of crocodile. #jaws height: 4vh, .eye height: 8vh
+// changes css of crocodile.
 function chomp() {
   alert("CHOMP")
-  // const jaws = document.querySelector("#jaws");
-  // const eyes = document.querySelectorAll(".eye");
-  // const lowerJaw = document.querySelector(".lower.gums");
-  // jaws.style.height = "4vh";
-  // lowerJaw.style.visibility = "collapse";
-  // eyes.forEach(eye => eye.style.height = "8vh");
   };
 
   function resetPrompt() {
@@ -29,8 +24,7 @@ function isTrigger() {
   alert(`Player ${turnCounter} Loses, New game?`)
   }
 
-  const teeth = document.querySelectorAll(".tooth");
-
+  // TODO: rework for new codepen croc
 function resetBoard() {
   const jaws = document.querySelector("#jaws");
   const eyes = document.querySelectorAll(".eye");
@@ -49,7 +43,6 @@ function resetBoard() {
    * event listener on click in jaw
    *    if div.tooth has attribute picked === 'false' -> change to 'true'
    */
-  // const jaw = document.querySelector(".lower.gums");
   const jaw = document.querySelector(".bottom-jaw-container");
   jaw.addEventListener("click", pickTooth);
 
@@ -66,6 +59,7 @@ function resetBoard() {
       parseInt(toothNum) === trigger ? isTrigger() : togglePicked(tooth);
     } else {
       console.log('you need to select how many players first');
+      alert('Oy mate, select the number of players before playing.')
     }
   }
 
