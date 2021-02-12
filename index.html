@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+
+    <div class="chomp hidden">
+      <h2>CHOMP</h2>
+      <iframe src="https://giphy.com/embed/3o6Mbsly2YSu4sbWb6" width="480" height="362" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-15-the-simpsons-15x8-3o6Mbsly2YSu4sbWb6">via GIPHY</a></p>
+      <p id="message"></p>
+      <h2>CHOMP</h2>
+      <button>New Game?</button>
+    </div>
+
     <h1>Crocodile Dentist</h1>
     <div class="main-console">
 
+
       <div id="player-count-console" show="true">
-        <h5>How Many Players?</h5>
+        <h3>How Many Players?</h3>
           <input id="player-count-slider" type="range" min="1" max="4" onchange="showSliderPosition(this.value)">
           <output id="slider-position"></output><br>
           <button>Select</button>
