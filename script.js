@@ -11,44 +11,26 @@
 
 // changes css of crocodile.
 function chomp() {
-  // alert("CHOMP")
   const eog = document.querySelector('div.chomp')
   const message = document.querySelector('p#message')
-  // eog.classList.remove('hidden');
   message.innerHTML = `Player ${turnCounter} Loses, New game?`
-  // const button = document.querySelector('div.chomp button')
-  // button.addEventListener('click', resetBoard() )
   };
 
   function resetPrompt() {
-    if (confirm("New Game?")) resetBoard() // TODO: confirm to alert?
+    if (confirm("New Game?")) resetBoard()
   }
 
 function isTrigger() {
   chomp();
-  // setTimeout(resetPrompt(), 4000); // FIX: Timeout still firing before chomp()
-  // alert(`Player ${turnCounter} Loses, New game?`)
   const eog = document.querySelector('div.chomp')
   const button = document.querySelector('div.chomp button')
   eog.classList.remove('hidden');
   button.addEventListener('click', resetBoard)
-
-  // const message = document.querySelector('p#message')
-  // const button = document.querySelector('div.chomp button')
-  // message.innerHTML(`Player ${turnCounter} Loses, New game?`)
-  // button.addEventListener('click', resetBoard )
 }
 
-  // TODO: rework for new codepen croc
 function resetBoard() {
-  const jaws = document.querySelector("#jaws");
-  const eyes = document.querySelectorAll(".eye");
-  const lowerJaw = document.querySelector(".lower.gums");
   const eog = document.querySelector('div.chomp')
 
-  // jaws.style.height = "20vh";
-  // lowerJaw.style.visibility = "visible";
-  // eyes.forEach(eye => eye.style.height = "4vh");
   eog.classList.add("hidden")
     teeth.forEach((t) => t.setAttribute("show", "true"));
     trigger = randomNumber(CHOICES);
@@ -139,11 +121,8 @@ function resetBoard() {
 
   function showPlayers() {
     playerCount = sliderPosition.value;
-    // hide playerCountConsole
     playerCountConsole.setAttribute("show", "false");
-    // make playerCount amount of Player divs
     makePlayers(playerCount);
-    // show player-console
     playerConsole.setAttribute("show", "true");
     whoseTurn();
     playerCountSelected = true;
